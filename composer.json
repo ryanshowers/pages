@@ -1,5 +1,5 @@
 {
-    "name": "ryanshowers/laravel-pages",
+    "name": "ryanshowers/pages",
     "description": "Laravel page package",
     "license": "MIT",
     "authors": [
@@ -10,6 +10,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ryanshowers/laravel-tags": "*"
+        "ryanshowers/tags": "*"
     }
 }
