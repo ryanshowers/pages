@@ -15,7 +15,7 @@
         "psr-4": {
             "ryanshowers\\Pages\\": "src/"
         }
-    }
+    },
     "minimum-stability": "dev",
     "require": {
         "ryanshowers/tags": "*"
