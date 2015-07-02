@@ -21,6 +21,11 @@ class PagesServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/resources/views', 'pages');
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'pages');
         
+        //Migrations
+        $this->publishes([
+            __DIR__.'/database/migrations/' => database_path('/migrations')
+        ], 'migrations');
+        
     }
 
     /**
