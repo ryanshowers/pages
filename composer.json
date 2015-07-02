@@ -1,0 +1,15 @@
+{
+    "name": "ryanshowers/laravel-pages",
+    "description": "Laravel page package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ryan Showers",
+            "email": "ryanshowers@6gwebdesign.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ryanshowers/laravel-tags": "*"
+    }
+}
