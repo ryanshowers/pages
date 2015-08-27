@@ -13,4 +13,12 @@ return [
         ],
     ],
     
+    'create' => [
+        'title' => 'Create Page',  
+    ],
+    
+    'edit' => [
+        'title' => 'Edit Page',  
+    ],
+    
 ];

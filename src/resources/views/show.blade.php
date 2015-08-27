@@ -10,7 +10,12 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
-				<h1 class="page-header">{{ $page->title }}</h1>
+				<h1 class="page-header">
+				    {{ $page->title }}
+				    @if (Auth::check())
+				    <small class="pull-right"><a href="{!! route(config('pages.route') . '.edit', $page->id) !!}"><i class="fa fa-pencil"></i></a></small>
+                    @endif
+				</h1>
 				{!! $page->content !!}
 				@if (!$page->tags->isEmpty())
 				    <p>Tags:

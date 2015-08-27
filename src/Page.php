@@ -37,5 +37,15 @@ class Page extends Model {
         	        ->orWhereNull('unpublish_at');
     	    });
 	}
+	
+	/**
+	 * Scope query to trashed pages
+	 * 
+	 * @access public
+	 * @return \Illuminate\Database\Eloquent\Builder
+	 */
+	public function scopeTrash($query) {
+    	return $query->withTrashed()->whereNotNull('deleted_at');
+	}
 
 }
