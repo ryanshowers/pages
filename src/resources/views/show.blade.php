@@ -6,7 +6,7 @@
 
 @section('content')
 
-<section id="content" class="{{$page->slug}}">
+<section id="{{$page->slug}}" class="section">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
