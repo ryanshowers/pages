@@ -19,7 +19,10 @@
 	<div class="container-fluid">
 	    <div class="row">
 	        <div class="col-xs-12">
-	            <h1 class="page-header">{{ trans('pages::messages.edit.title') }}</h1>
+	            <h1 class="page-header">
+	                {{ trans('pages::messages.edit.title') }}
+                    <a class="btn btn-primary pull-right" href="{!! route(config('pages.route') . '.show', $page->slug); !!}">View Page</a>
+	            </h1>
 	            @if ($page->trashed())
     	            <div class="alert alert-warning">Trashed on {{ $page->deleted_at }}.  Saving will remove the page from the trash.</div>
 	            @endif
