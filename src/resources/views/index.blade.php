@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 	
 @section('meta_title', trans('pages::messages.index.meta.title'))
 @section('meta_description', trans('pages::messages.index.meta.description'))
