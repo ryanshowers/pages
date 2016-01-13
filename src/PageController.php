@@ -12,7 +12,7 @@ class PageController extends Controller {
 
 	
 	public function __construct() {
-    	$this->middleware('auth', [
+    	$this->middleware(config('pages.auth_middleware') , [
     	    'except' => ['index', 'show']
         ]);
 	}
@@ -24,7 +24,7 @@ class PageController extends Controller {
 	 */
 	public function index()
 	{
-		$pages = Page::published()->orderBy('created_at', 'desc')->paginate(10);
+		$pages = Page::published()->orderBy('created_at', 'desc')->paginate(config('pages.pagination'));
 		return view('pages::index', [
 			'pages' => $pages
 		]);
@@ -41,7 +41,7 @@ class PageController extends Controller {
 	}
 	
 	public function trash() {
-    	$pages = Page::trash()->orderBy('deleted_at', 'desc')->paginate(10);
+    	$pages = Page::trash()->orderBy('deleted_at', 'desc')->paginate(config('tags.pagination'));
 		return view('pages::index', [
 			'pages' => $pages
 		]);
@@ -114,7 +114,7 @@ class PageController extends Controller {
         } else {
     		$pages = Page::whereHas('tags', function($query) use ($slug) {
                 $query->where('name', '=', $slug);
-            })->published()->paginate(10);
+            })->published()->paginate(config('tags.pagination'));
             return view('pages::index', [
 			    'pages' => $pages
             ]);
