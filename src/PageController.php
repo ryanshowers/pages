@@ -12,7 +12,10 @@ class PageController extends Controller {
 
 	
 	public function __construct() {
-    	$this->middleware(config('pages.auth_middleware') , [
+    	
+    	$this->middleware('web');
+    	
+    	$this->middleware('auth' , [
     	    'except' => ['index', 'show']
         ]);
 	}
