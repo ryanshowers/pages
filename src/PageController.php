@@ -86,7 +86,7 @@ class PageController extends Controller {
 	    //Update dates
 	    $page->touch();
 	    
-	    return redirect()->route(config('pages.route') . '.edit', $page->id);
+	    return redirect()->route(config('pages.route') . '.edit', $page->slug);
 	}
 
 	/**
@@ -178,7 +178,7 @@ class PageController extends Controller {
     	    //Update dates
     	    $page->touch();
     	    
-    	    return redirect()->route(config('pages.route') . '.edit', $page->id);
+    	    return redirect()->route(config('pages.route') . '.edit', $page->slug);
 		}
 	}
 
