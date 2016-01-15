@@ -127,12 +127,12 @@ class PageController extends Controller {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  int  $slug
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($slug)
 	{
-		$page = Page::with('tags')->withTrashed()->where('id', '=', $id)->first();
+		$page = Page::with('tags')->withTrashed()->where('slug', '=', $slug)->first();
 		return view('pages::edit', [
     		'page' => $page
 		]);

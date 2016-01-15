@@ -13,7 +13,7 @@
 				<h1 class="page-header">
 				    {{ $page->title }}
 				    @if (Auth::check())
-				    <small class="pull-right"><a href="{!! route(config('pages.route') . '.edit', $page->id) !!}"><i class="fa fa-pencil"></i></a></small>
+				    <small class="pull-right"><a href="{!! route(config('pages.route') . '.edit', $page->slug) !!}"><i class="fa fa-pencil"></i></a></small>
                     @endif
 				</h1>
 				{!! $page->content !!}
