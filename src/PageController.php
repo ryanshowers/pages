@@ -190,8 +190,10 @@ class PageController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		Page::destroy($id);
-		return redirect()->route(config('pages.route') . '.edit', $id);
+		if ($page = Page::where('id', '=', $id)->first()) {
+		    Page::destroy($id);
+            return redirect()->route(config('pages.route') . '.edit', $page->slug);
+        }
 	}
 
 }
