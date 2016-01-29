@@ -164,6 +164,8 @@ class PageController extends Controller {
     	    $attributes = array_filter(array_combine($attributes['keys'], $attributes['values']));
     	    if (!empty($attributes)) {
                 $page->attributes = serialize($attributes);
+            } else {
+                $page->attributes = '';
             }
     	    
     	    $page->update();
