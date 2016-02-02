@@ -117,7 +117,17 @@ class PageController extends Controller {
         } else {
     		$pages = Page::whereHas('tags', function($query) use ($slug) {
                 $query->where('name', '=', $slug);
-            })->published()->paginate(config('tags.pagination'));
+            })->orderBy('sort', 'ASC')->orderBy('title', 'ASC');
+            
+            //If we are authorized, show unpublished and trashed items
+            if (\Auth::check()) {
+                $pages = $pages->withTrashed();
+            } else {
+                $pages = $pages->published();
+            }
+            
+            $pages = $pages->paginate(config('tags.pagination'));
+            
             return view('pages::index', [
 			    'pages' => $pages
             ]);
@@ -196,6 +206,18 @@ class PageController extends Controller {
 		    Page::destroy($id);
             return redirect()->route(config('pages.route') . '.edit', $page->slug);
         }
+	}
+	
+	public function sort(Request $request)
+	{
+    	if ($values = $request->input('sort')) {
+        	foreach ($values as $value) {
+            	if ($page = Page::where('id', '=', $value['id'])->first()) {
+                	$page->sort = $value['sort'];
+                	$page->update();
+            	}
+        	}
+    	}
 	}
 
 }
